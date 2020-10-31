@@ -6,6 +6,7 @@ NOTICE: This project is a submission to NSC 2021, which is ran by the National S
 
 ## License (they forced us to put this here)
 ข้อตกลงในการใช้ซอฟต์แวร์
+
 ซอฟต์แวร์นี้เป็นผลงานที่พัฒนาขึ้นโดย ....(ชื่อผู้พัฒนา).... จาก ....(ชื่อสถาบัน).…...
 ภายใต้การดูแลของ ....(ชื่ออาจารย์ที่ปรึกษา).... ภายใต้โครงการ ....(ชื่อโครงการ).... ซึ่งสนับสนุน
 โดย สำนักงานพัฒนาวิทยาศาสตร์และเทคโนโลยีแห่งชาติ โดยมีวัตถุประสงค์เพื่อส่งเสริมให้
@@ -20,8 +21,9 @@ NOTICE: This project is a submission to NSC 2021, which is ran by the National S
 hi i suck at typing thai can someone fix this for me pls
 
 License Agreement
-This software is a work developed by Chaiyanant Cheerasiri, Tinnaphop Choonchuachan and Supanut Udompataikul from
-Bangkok Christian College under the provision of Lojruthai Jocknoi under Mathematical Base Defense , which has been supported by the National Science and Technology
+
+This software is a work developed by [Chaiyanant Cheerasiri](https://github.com/KG07), [Tinnaphop Choonchuachan](https://github.com/mistertfy64) and [Supanut Udompataikul](https://github.com/Muq1937) from
+[Bangkok Christian College](bcc.ac.th) under the provision of Lojruthai Jocknoi under Mathematical Base Defense , which has been supported by the National Science and Technology
 Development Agency (NSTDA), in order to encourage pupils and students to learn
 and practice their skills in developing software. Therefore, the intellectual
 property of this software shall belong to the developer and the developer gives
@@ -34,3 +36,7 @@ Moreover, NSTDA shall not be liable for any error, software efficiency and
 damages in connection with or arising out of the use of the software.”
 
 (copied and pasted)
+
+##Special Thanks
+
+[Phat Lorthammakun](https://github.com/VenusClietnt) for contributing (ป่วน) and being Mathematical Base Defense's mascot.
