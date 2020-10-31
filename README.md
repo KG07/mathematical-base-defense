@@ -17,10 +17,11 @@ NOTICE: This project is a submission to NSC 2021, which is ran by the National S
 หน้าที่ในการดูแล บำรุงรักษา จัดการอบรมการใช้งาน หรือพัฒนาประสิทธิภาพซอฟต์แวร์ รวมทั้ง
 ไม่รับรองความถูกต้องหรือประสิทธิภาพการทำงานของซอฟต์แวร์ ตลอดจนไม่รับประกันความ
 เสียหายต่างๆ อันเกิดจากการใช้ซอฟต์แวร์นี้ทั้งสิน้
+hi i suck at typing thai can someone fix this for me pls
+
 License Agreement
-This software is a work developed by …(Developer’s name)… from …
-yingluck college co under the provision of …(Advisor’s name)…. under …(Project’s
-name)… , which has been supported by the National Science and Technology
+This software is a work developed by Chaiyanant Cheerasiri, Tinnaphop Choonchuachan and Supanut Udompataikul from
+Bangkok Christian College under the provision of Lojruthai Jocknoi under Mathematical Base Defense , which has been supported by the National Science and Technology
 Development Agency (NSTDA), in order to encourage pupils and students to learn
 and practice their skills in developing software. Therefore, the intellectual
 property of this software shall belong to the developer and the developer gives
@@ -31,4 +32,5 @@ purposes. In this connection, NSTDA shall not be responsible to the user for
 taking care, maintaining, training or developing the efficiency of this software.
 Moreover, NSTDA shall not be liable for any error, software efficiency and
 damages in connection with or arising out of the use of the software.”
+
 (copied and pasted)
