@@ -2,7 +2,7 @@
 
 Mathematical Base Defense is a game about math, enemies, and of course, tower defense.
 
-NOTICE: This project is a submission to NSC 2021, which is ran by National Science and Technology Development Agency (NSTDA).
+NOTICE: This project is a submission to NSC 2021, which is ran by the National Science and Technology Development Agency (NSTDA).
 
 ## License (they forced us to put this here)
 ข้อตกลงในการใช้ซอฟต์แวร์
@@ -19,7 +19,7 @@ NOTICE: This project is a submission to NSC 2021, which is ran by National Scien
 เสียหายต่างๆ อันเกิดจากการใช้ซอฟต์แวร์นี้ทั้งสิน้
 License Agreement
 This software is a work developed by …(Developer’s name)… from …
-(School’s name)… under the provision of …(Advisor’s name)…. under …(Project’s
+yingluck college co under the provision of …(Advisor’s name)…. under …(Project’s
 name)… , which has been supported by the National Science and Technology
 Development Agency (NSTDA), in order to encourage pupils and students to learn
 and practice their skills in developing software. Therefore, the intellectual
