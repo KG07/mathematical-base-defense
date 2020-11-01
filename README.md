@@ -7,8 +7,8 @@ NOTICE: This project is a submission to NSC 2021, which is ran by the National S
 ## License (they forced us to put this here)
 ข้อตกลงในการใช้ซอฟต์แวร์
 
-ซอฟต์แวร์นี้เป็นผลงานที่พัฒนาขึ้นโดย ....(ชื่อผู้พัฒนา).... จาก ....(ชื่อสถาบัน).…...
-ภายใต้การดูแลของ ....(ชื่ออาจารย์ที่ปรึกษา).... ภายใต้โครงการ ....(ชื่อโครงการ).... ซึ่งสนับสนุน
+ซอฟต์แวร์นี้เป็นผลงานที่พัฒนาขึ้นโดย ....(ชื่อผู้พัฒนา).... จาก [โรงเรียนกรุงเทพคริสเตียนวิทยาลัย](bcc.ac.th)
+ภายใต้การดูแลของ ....(ชื่ออาจารย์ที่ปรึกษา).... ภายใต้โครงการ ปกป้องฐานด้วยคณิตศาสตร์ ซึ่งสนับสนุน
 โดย สำนักงานพัฒนาวิทยาศาสตร์และเทคโนโลยีแห่งชาติ โดยมีวัตถุประสงค์เพื่อส่งเสริมให้
 นักเรียนและนักศึกษาได้เรียนรู้และฝึกทักษะในการพัฒนาซอฟต์แวร์ ลิขสิทธิ์ของซอฟต์แวร์นี้จึง
 เป็นของผู้พัฒนา ซึ่งผู้พัฒนาได้อนุญาตให้สำนักงานพัฒนาวิทยาศาสตร์และเทคโนโลยีแห่งชาติ
@@ -39,4 +39,4 @@ damages in connection with or arising out of the use of the software.”
 
 ##Special Thanks
 
-[Phat Lorthammakun](https://github.com/VenusClietnt) for contributing (ป่วน) and being Mathematical Base Defense's mascot.
+[Phat Lorthammakun](https://github.com/VenusClietnt) for contributing and being Mathematical Base Defense's mascot.
