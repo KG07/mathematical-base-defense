@@ -41,6 +41,6 @@ damages in connection with or arising out of the use of the software.”
 
 **บุคคลที่ระบุไว้ด้านล่างไม่ใช่ผู้พัฒนาโครงการนี้**
 
-**PLEASE NOTE THAT THE PEOPLE HERE HAVE ARE NOT ONE OF THE DEVELOPERS OF MATHEMATICAL BASE DEFENSE!**
+**PLEASE NOTE THAT THE PEOPLE HERE ARE NOT ONE OF THE DEVELOPERS OF MATHEMATICAL BASE DEFENSE!**
 
 [Phat Lorthammakun](https://github.com/VenusClietnt) for helping us type our school's name and being Mathematical Base Defense's mascot. 
