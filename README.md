@@ -39,4 +39,4 @@ damages in connection with or arising out of the use of the software.”
 
 ## Special Thanks
 
-[Phat Lorthammakun](https://github.com/VenusClietnt) for contributing and being Mathematical Base Defense's mascot.
+[Phat Lorthammakun](https://github.com/VenusClietnt) for helping us type our school's name and being Mathematical Base Defense's mascot. (NOTE: HE IS NOT A DEV!) 
