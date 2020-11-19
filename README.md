@@ -1,6 +1,8 @@
 # ปกป้องฐานด้วยคณิตศาสตร์ - Mathematical Base Defense
 
-Mathematical Base Defense is a game about math, enemies, and of course, tower defense.
+Mathematical Base Defense is a educational game about making math equations to destroy enemies while protecting your base in the process.
+
+Anyone is open to contribute to Mathematical Base Defense. (you might also be rewarded)!
 
 NOTICE: This project is a submission to NSC 2021, which is ran by the National Science and Technology Development Agency (NSTDA).
 
