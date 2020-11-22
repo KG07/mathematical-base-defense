@@ -289,63 +289,7 @@ public class Display extends JFrame implements MouseListener {
         currentState = State.SINGLEPLAYER_SCREEN;
     }
 
-    /*
-    private void initializeUserInterfaceComponents(){
-
-        //setting properties
-
-        //text
-        //title text
-        titleTextLabelBounds.setBounds(0, 0, windowWidth, (int) (windowHeight * 0.175));
-        titleTextLabelGraphics2D.setFont(computerModernFont72Pixels);
-        // titleTextLabelGraphics2D.scale(windowWidth/1920d, windowHeight/1080d);
-        titleTextLabel.setText("Mathematical Base Defense");
-        titleTextLabelBounds.add(titleTextLabel);
-
-
-        //buttons
-        //singleplayer button
-        singlePlayerButtonBounds.setBounds((int) (windowWidth * 0.34375), (int) (windowHeight * 0.25), (600 * windowWidth / 1920),  (100 * windowHeight / 1080));
-        singlePlayerButton.setImage(singlePlayerButtonImage);
-        //multiplayer button
-        multiPlayerButtonBounds.setBounds((int) (windowWidth * 0.34375), (int) (windowHeight * 0.4), (600 * windowWidth / 1920),  (100 * windowHeight / 1080));
-        multiPlayerButton.setImage(multiPlayerButtonImage);
-        //options button
-        optionsButtonBounds.setBounds((int) (windowWidth * 0.34375), (int) (windowHeight * 0.55),  (600 * windowWidth / 1920),  (100 * windowHeight / 1080));
-        optionsButton.setImage(optionsButtonImage);
-        //quit button
-        quitButtonBounds.setBounds((int) (windowWidth * 0.34375), (int) (windowHeight * 0.7), (600 * windowWidth / 1920), (100 * windowHeight / 1080));
-        quitButton.setImage(quitButtonImage);
-
-        //add bounds to arraylist
-        //title screen
-        if (!(titlePanelNames.contains("singlePlayerButtonBounds"))){
-            titlePanels.add(singlePlayerButtonBounds);
-            titlePanelNames.add(singlePlayerButtonBounds.getName());
-        }
-
-        if (!(titlePanelNames.contains("multiPlayerButtonBounds"))){
-            titlePanels.add(multiPlayerButtonBounds);
-            titlePanelNames.add(multiPlayerButtonBounds.getName());
-        }
-
-
-        if (!(titlePanelNames.contains("optionsButtonBounds"))){
-            titlePanels.add(optionsButtonBounds);
-            titlePanelNames.add(optionsButtonBounds.getName());
-        }
-
-        if (!(titlePanelNames.contains("quitButtonBounds"))){
-            titlePanels.add(quitButtonBounds);
-            titlePanelNames.add(quitButtonBounds.getName());
-        }
-
-    }
-     */
-
     private void initializeUserInterfaceComponents(BufferStrategy bufferStrategy){
-
-
 
         try {
 
