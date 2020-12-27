@@ -1,4 +1,4 @@
-package me.kg07.mathematicalbasedefense.game;
+package me.kg07.mathematicalbasedefense.game.core;
 
 import javax.swing.*;
 
