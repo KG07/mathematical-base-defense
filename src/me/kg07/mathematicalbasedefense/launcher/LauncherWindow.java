@@ -10,16 +10,14 @@ package me.kg07.mathematicalbasedefense.launcher;
  */
 
 
-import me.kg07.mathematicalbasedefense.game.Display;
-import me.kg07.mathematicalbasedefense.game.Game;
-import me.kg07.mathematicalbasedefense.game.Loop;
+import me.kg07.mathematicalbasedefense.game.core.Game;
+import me.kg07.mathematicalbasedefense.game.core.Loop;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 
 public class LauncherWindow implements ActionListener {
 
@@ -58,7 +56,8 @@ public class LauncherWindow implements ActionListener {
         try {
             // sorry for doing this lol
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-            computerModernFont = Font.createFont(Font.TRUETYPE_FONT, new File("src/me/kg07/mathematicalbasedefense/launcher/assets/computermodern.ttf")).deriveFont(12f);
+            InputStream computerModernFontInputStream = new BufferedInputStream(new FileInputStream("src/me/kg07/mathematicalbasedefense/launcher/assets/computermodern.ttf"));
+            computerModernFont = Font.createFont(Font.TRUETYPE_FONT, computerModernFontInputStream).deriveFont(12f);
             computerModernFont12Pixels = computerModernFont.deriveFont(12f);
             computerModernFont16Pixels = computerModernFont.deriveFont(16f);
             computerModernFont20Pixels = computerModernFont.deriveFont(20f);
@@ -183,7 +182,7 @@ public class LauncherWindow implements ActionListener {
             //launch game button
         if (actionEvent.getSource() == launchGameButton){
             launcherWindow.dispose();
-            new Thread(new Loop(new Game(selectedResolutionWidth, selectedResolutionHeight, false))).start();
+            new Thread(new Loop(new Game(selectedResolutionWidth, selectedResolutionHeight))).start();
 
             //resolution selection box
         } else if (actionEvent.getSource() == resolutionSelectionBox){
