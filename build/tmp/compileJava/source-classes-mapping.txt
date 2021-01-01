@@ -1,7 +1,8 @@
-me/kg07/mathematicalbasedefense/launcher/LauncherWindow.java
- me.kg07.mathematicalbasedefense.launcher.LauncherWindow
-me/kg07/mathematicalbasedefense/launcher/Launcher.java
- me.kg07.mathematicalbasedefense.launcher.Launcher
+me/kg07/mathematicalbasedefense/game/userinterface/Image.java
+ me.kg07.mathematicalbasedefense.game.userinterface.Image
+me/kg07/mathematicalbasedefense/game/userinterface/ImageButton.java
+ me.kg07.mathematicalbasedefense.game.userinterface.ImageButton
+ me.kg07.mathematicalbasedefense.game.userinterface.ImageButton$1
 me/kg07/mathematicalbasedefense/game/core/ErrorWindow.java
  me.kg07.mathematicalbasedefense.game.core.ErrorWindow
 me/kg07/mathematicalbasedefense/game/core/Evaluator.java
@@ -32,8 +33,7 @@ me/kg07/mathematicalbasedefense/game/core/Loop.java
  me.kg07.mathematicalbasedefense.game.core.Loop
 me/kg07/mathematicalbasedefense/game/userinterface/NotificationText.java
  me.kg07.mathematicalbasedefense.game.userinterface.NotificationText
-me/kg07/mathematicalbasedefense/game/userinterface/Image.java
- me.kg07.mathematicalbasedefense.game.userinterface.Image
-me/kg07/mathematicalbasedefense/game/userinterface/ImageButton.java
- me.kg07.mathematicalbasedefense.game.userinterface.ImageButton
- me.kg07.mathematicalbasedefense.game.userinterface.ImageButton$1
+me/kg07/mathematicalbasedefense/launcher/Launcher.java
+ me.kg07.mathematicalbasedefense.launcher.Launcher
+me/kg07/mathematicalbasedefense/launcher/LauncherWindow.java
+ me.kg07.mathematicalbasedefense.launcher.LauncherWindow
