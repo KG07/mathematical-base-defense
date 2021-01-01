@@ -3,7 +3,7 @@ package me.kg07.mathematicalbasedefense.game;
 /**
  * Display Class for Mathematical Base Defense
  * @author  mistertfy64
- * @version 0.0.1-alpha
+ * @version 0.1.0
  * @since   2020-11-15 or something i cant remember
  *
  */
@@ -86,6 +86,7 @@ public class Display extends JFrame implements KeyListener, MouseListener {
     public static ArrayList<BufferedImage> singleplayerImageImages = new ArrayList<BufferedImage>();
     public static ArrayList<String> singleplayerImagePanelNames = new ArrayList<String>();
 
+    //singleplayer screen image buttons
     //singleplayer screen image buttons
     public static ArrayList<JPanel> singleplayerImageButtonPanels = new ArrayList<JPanel>();
     public static ArrayList<BufferedImage> singleplayerImageButtonImages = new ArrayList<BufferedImage>();
@@ -191,7 +192,7 @@ public class Display extends JFrame implements KeyListener, MouseListener {
             displayWindow = new JFrame();
 
 
-            displayWindow.setTitle("Mathematical Base Defense v0.0.1-alpha");
+            displayWindow.setTitle("Mathematical Base Defense 0.1.0");
             displayWindow.setIconImage(ImageIO.read(new BufferedInputStream(new FileInputStream("src/me/kg07/mathematicalbasedefense/game/assets/images/logo.png"))));
             displayWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             displayWindow.setResizable(false);
@@ -281,10 +282,12 @@ public class Display extends JFrame implements KeyListener, MouseListener {
                                 //selected == true
                                 Game.singleplayerTilesSelectionState[r][c] = false;
                                 Game.removeTermFromProblem("tile" + tileLetters.charAt(c) + (r + 1));
+                                break;
                             } else {
                                 //selected == false
                                 Game.singleplayerTilesSelectionState[r][c] = true;
                                 Game.addTermToProblem("tile" + tileLetters.charAt(c) + (r + 1));
+                                break;
                             }
                         }
                     }
@@ -294,6 +297,7 @@ public class Display extends JFrame implements KeyListener, MouseListener {
                     Evaluator.sendProblem(Game.problem);
                     break;
                 }
+                break;
             }
             case GAME_OVER_SCREEN: {
                 for (int i = 0; i < gameOverImageButtonImages.size(); i++) {
@@ -559,6 +563,10 @@ public class Display extends JFrame implements KeyListener, MouseListener {
                 }
                 break;
             }
+            case SETTINGS_SCREEN: {
+
+                break;
+            }
             case GAME_OVER_SCREEN: {
                 //text
                 renderText("Game Over!", 0, 0, true, true, 1, 1, gameOverTextPanels.get(gameOverTextPanelNames.indexOf("gameOverTextBounds")), getComputerModernFontOfSpecifiedSize(96), Color.RED, englishTextGraphics2D);
@@ -566,6 +574,7 @@ public class Display extends JFrame implements KeyListener, MouseListener {
                 for (int i = 0; i < gameOverImageButtonImages.size(); i++){
                     renderImage(gameOverImageButtonImages.get(i), gameOverImageButtonPanels.get(i).getX(), gameOverImageButtonPanels.get(i).getY(), null, false, false,  1, 1, gameOverImageButtonPanels.get(i), imageButtonGraphics2D);
                 }
+                break;
             }
         }
 
@@ -646,7 +655,6 @@ public class Display extends JFrame implements KeyListener, MouseListener {
 
         //dispose graphics2D stuff
         canvasGraphics2D.dispose();
-        imageButtonGraphics2D.dispose();
         tooltipGraphics2D.dispose();
         englishTextGraphics2D.dispose();
         statsPanelGraphics2D.dispose();

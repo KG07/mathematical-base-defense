@@ -38,7 +38,7 @@ public class LauncherWindow implements ActionListener {
     JButton launchGameButton;
 
 
-    String[] resolutions = {"800x600", "960x720", "1024x768", "1280x960", "1400x1050", "1440x1080", "1600x1200", "1024x576", "1152x648", "1280x720", "1366x768", "1600x900", "1920x1080"};
+    String[] resolutions = {"1024x576", "1152x648", "1280x720", "1366x768", "1600x900", "1920x1080"};
 
     int selectedResolutionWidth = 1920;
     int selectedResolutionHeight = 1080;
@@ -112,7 +112,7 @@ public class LauncherWindow implements ActionListener {
             titleLabel.setText("Mathematical Base Defense");
 
             versionLabel.setFont(computerModernFont16Pixels);
-            versionLabel.setText("Version 0.0.1-alpha");
+            versionLabel.setText("Version 0.1.0-alpha");
 
             launchGameButtonTextLabel.setFont(computerModernFont20Pixels);
             launchGameButtonTextLabel.setText("Launch Mathematical Base Defense");
@@ -200,66 +200,31 @@ public class LauncherWindow implements ActionListener {
             if (selectedResolution.equals(resolutions[i])){
                 switch (i){
                     case 0: {
-                        selectedResolutionWidth = 800;
-                        selectedResolutionHeight = 600;
-                        break;
-                    }
-                    case 1: {
-                        selectedResolutionWidth = 960;
-                        selectedResolutionHeight = 720;
-                        break;
-                    }
-                    case 2: {
-                        selectedResolutionWidth = 1024;
-                        selectedResolutionHeight = 768;
-                        break;
-                    }
-                    case 3: {
-                        selectedResolutionWidth = 1280;
-                        selectedResolutionHeight = 960;
-                        break;
-                    }
-                    case 4: {
-                        selectedResolutionWidth = 1400;
-                        selectedResolutionHeight = 1050;
-                        break;
-                    }
-                    case 5: {
-                        selectedResolutionWidth = 1440;
-                        selectedResolutionHeight = 1080;
-                        break;
-                    }
-                    case 6: {
-                        selectedResolutionWidth = 1600;
-                        selectedResolutionHeight = 1200;
-                        break;
-                    }
-                    case 7: {
                         selectedResolutionWidth = 1024;
                         selectedResolutionHeight = 576;
                         break;
                     }
-                    case 8: {
+                    case 1: {
                         selectedResolutionWidth = 1152;
                         selectedResolutionHeight = 648;
                         break;
                     }
-                    case 9: {
+                    case 2: {
                         selectedResolutionWidth = 1280;
                         selectedResolutionHeight = 720;
                         break;
                     }
-                    case 10: {
+                    case 3: {
                         selectedResolutionWidth = 1366;
                         selectedResolutionHeight = 768;
                         break;
                     }
-                    case 11: {
+                    case 4: {
                         selectedResolutionWidth = 1600;
                         selectedResolutionHeight = 900;
                         break;
                     }
-                    case 12: {
+                    case 5: {
                         selectedResolutionWidth = 1920;
                         selectedResolutionHeight = 1080;
                         break;
