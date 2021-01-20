@@ -10,7 +10,7 @@ NOTICE: This project is a submission to NSC 2021, which is ran by the National S
 
 Download the files, and then run the executable INSIDE THE FOLDER IT'S IN (you only have to do this for each first launch for each version).
 
-## Uses
+## Use
 
 You are to form expressions that match atleast one of the numbers above the enemies before they reach your base.
 Doing so awards you points, the number of points according to how far the enemy is from the base, and how long your expression is.
