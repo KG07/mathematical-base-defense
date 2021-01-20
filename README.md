@@ -6,21 +6,16 @@ Anyone is open to contribute to Mathematical Base Defense. (you might also be re
 
 NOTICE: This project is a submission to NSC 2021, which is ran by the National Science and Technology Development Agency (NSTDA).
 
-## License (they forced us to put this here)
-ข้อตกลงในการใช้ซอฟต์แวร์
+## Installation
 
-ซอฟต์แวร์นี้เป็นผลงานที่พัฒนาขึ้นโดย ....(ชื่อผู้พัฒนา).... จาก [โรงเรียนกรุงเทพคริสเตียนวิทยาลัย](https://bcc.ac.th)
-ภายใต้การดูแลของ ....(ชื่ออาจารย์ที่ปรึกษา).... ภายใต้โครงการ ปกป้องฐานด้วยคณิตศาสตร์ ซึ่งสนับสนุน
-โดย สำนักงานพัฒนาวิทยาศาสตร์และเทคโนโลยีแห่งชาติ โดยมีวัตถุประสงค์เพื่อส่งเสริมให้
-นักเรียนและนักศึกษาได้เรียนรู้และฝึกทักษะในการพัฒนาซอฟต์แวร์ ลิขสิทธิ์ของซอฟต์แวร์นี้จึง
-เป็นของผู้พัฒนา ซึ่งผู้พัฒนาได้อนุญาตให้สำนักงานพัฒนาวิทยาศาสตร์และเทคโนโลยีแห่งชาติ
-เผยแพร่ซอฟต์แวร์นี้ตาม “ต้นฉบับ” โดยไม่มีการแก้ไขดัดแปลงใดๆ ทั้งสิ้น ให้แก่บุคคลทั่วไปได้ใช้
-เพื่อประโยชน์ส่วนบุคคลหรือประโยชน์ทางการศึกษาที่ไม่มีวัตถุประสงค์ในเชิงพาณิชย์ โดยไม่คิด
-ค่าตอบแทนการใช้ซอฟต์แวร์ ดังนั้น สำนักงานพัฒนาวิทยาศาสตร์และเทคโนโลยีแห่งชาติ จึงไม่มี
-หน้าที่ในการดูแล บำรุงรักษา จัดการอบรมการใช้งาน หรือพัฒนาประสิทธิภาพซอฟต์แวร์ รวมทั้ง
-ไม่รับรองความถูกต้องหรือประสิทธิภาพการทำงานของซอฟต์แวร์ ตลอดจนไม่รับประกันความ
-เสียหายต่างๆ อันเกิดจากการใช้ซอฟต์แวร์นี้ทั้งสิน้
-hi i suck at typing thai can someone fix this for me pls
+Download the files, and then run the executable INSIDE THE FOLDER IT'S IN (you only have to do this for each first launch for each version).
+
+## Uses
+
+You are to form expressions that match atleast one of the numbers above the enemies before they reach your base.
+Doing so awards you points, the number of points according to how far the enemy is from the base, and how long your expression is.
+
+## License
 
 License Agreement
 
