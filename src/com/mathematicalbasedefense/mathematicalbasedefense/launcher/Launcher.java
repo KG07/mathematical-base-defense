@@ -10,25 +10,29 @@ package com.mathematicalbasedefense.mathematicalbasedefense.launcher;
  *
  */
 
-import com.mathematicalbasedefense.mathematicalbasedefense.game.Display;
 import com.mathematicalbasedefense.mathematicalbasedefense.game.core.ErrorWindow;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 
 import com.mathematicalbasedefense.mathematicalbasedefense.game.core.LogMessage;
 import org.apache.commons.io.FileUtils;
 import org.json.JSONObject;
+import org.json.JSONTokener;
 
 import javax.imageio.ImageIO;
 
 public class Launcher {
     public static void main(String[] args) {
         initializeFiles();
-        writeVersionNumberToMetadataJSONFile("0.2.0");
+
+        if (!getVersionNumberFromMetadataJSONFile().equals("0.3.0")){
+            updateFilesToLatestVersion();
+        }
+
+
+
+        writeVersionNumberToMetadataJSONFile("0.3.0");
         new LauncherWindow();
     }
 
@@ -57,14 +61,6 @@ public class Launcher {
         if(!launcherAssetsFolder.exists()) {
             new File(System.getenv("LOCALAPPDATA") + "\\MathematicalBaseDefense\\launcher\\assets").mkdirs();
         }
-
-        //game metadata folder
-        File metadataFile = new File(System.getenv("LOCALAPPDATA") + "\\MathematicalBaseDefense\\game\\metadata.json");
-        if(!metadataFile.exists()) {
-            new File(System.getenv("LOCALAPPDATA") + "\\MathematicalBaseDefense\\game\\metadata.json").mkdirs();
-        }
-
-
 
 
         ArrayList<String> namesOfLauncherFilesToCheck = new ArrayList<String>();
@@ -186,6 +182,58 @@ public class Launcher {
 
 
     }
+
+
+    public static String getVersionNumberFromMetadataJSONFile(){
+        JSONTokener settingsJSONFileTokener = null;
+        try {
+            settingsJSONFileTokener = new JSONTokener(new FileReader(System.getenv("LOCALAPPDATA") + "\\MathematicalBaseDefense\\game\\metadata.json"));
+            JSONObject metadataJSONObject = new JSONObject(settingsJSONFileTokener);
+            JSONObject metadataListJSONObject = metadataJSONObject.getJSONObject("metadata");
+            return metadataListJSONObject.getString("version");
+        } catch (Exception exception) {
+            StringWriter stringWriter = new StringWriter();
+            exception.printStackTrace(new PrintWriter(stringWriter));
+            return stringWriter.toString();
+        }
+
+
+
+        //enemy color
+    }
+
+
+
+
+    public static void updateFilesToLatestVersion(){
+        LogMessage.logMessage("Versions do not match! Current version is 0.3.0 but metadata.json's version key is " + getVersionNumberFromMetadataJSONFile(), LogMessage.MessageType.INFO);
+        //actually update files
+
+
+        ArrayList<String> namesOfUpdatedFilesToCheck = new ArrayList<String>();
+        namesOfUpdatedFilesToCheck.add("game\\assets\\images\\mathematical_base_defense_logo.png");
+
+
+
+
+        try {
+            for (int i = 0; i < namesOfUpdatedFilesToCheck.size(); i++) {
+                File fileToCheck = new File(System.getenv("LOCALAPPDATA") + "\\MathematicalBaseDefense\\" + namesOfUpdatedFilesToCheck.get(i));
+                LogMessage.logMessage("Checking for " + namesOfUpdatedFilesToCheck.get(i) + " (" + (i+1) + "/" + namesOfUpdatedFilesToCheck.size() + ")", LogMessage.MessageType.INFO);
+                LogMessage.logMessage("Updated File " + namesOfUpdatedFilesToCheck.get(i) + " does not exist! Copying file " + namesOfUpdatedFilesToCheck.get(i) + " from src...", LogMessage.MessageType.INFO);
+                copyAndPasteFile("src/com/mathematicalbasedefense/mathematicalbasedefense/" + namesOfUpdatedFilesToCheck.get(i).replace("\\", "/"), System.getenv("LOCALAPPDATA") + "\\MathematicalBaseDefense\\" + namesOfUpdatedFilesToCheck.get(i));
+            }
+        } catch (Exception exception){
+            StringWriter stringWriter = new StringWriter();
+            exception.printStackTrace(new PrintWriter(stringWriter));
+            new ErrorWindow(stringWriter.toString());
+        }
+    
+    
+    }
+
+
+
 
     //wow this actually works lol
     public static String getStackTraceAsString(Exception exception){

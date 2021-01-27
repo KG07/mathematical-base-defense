@@ -10,6 +10,7 @@ package com.mathematicalbasedefense.mathematicalbasedefense.launcher;
  */
 
 
+import com.mathematicalbasedefense.mathematicalbasedefense.game.core.ErrorWindow;
 import com.mathematicalbasedefense.mathematicalbasedefense.game.core.Game;
 import com.mathematicalbasedefense.mathematicalbasedefense.game.core.Loop;
 
@@ -112,7 +113,7 @@ public class LauncherWindow implements ActionListener {
             titleLabel.setText("Mathematical Base Defense");
 
             versionLabel.setFont(computerModernFont16Pixels);
-            versionLabel.setText("Version 0.2.0");
+            versionLabel.setText("0.3.0");
 
             launchGameButtonTextLabel.setFont(computerModernFont20Pixels);
             launchGameButtonTextLabel.setText("Launch Mathematical Base Defense");
@@ -160,16 +161,10 @@ public class LauncherWindow implements ActionListener {
 
             
             
-        } catch (IOException | FontFormatException e) {
-            JFrame errorWindow = new JFrame();
-            JLabel label = new JLabel();
-            errorWindow.setSize(500, 100);
-            errorWindow.setResizable(false);
-            errorWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            label.setText("An error has occurred while trying to launch the launcher.");
-            errorWindow.add(label);
-            errorWindow.setVisible(true);
-            e.printStackTrace();
+        } catch (Exception exception) {
+            StringWriter stringWriter = new StringWriter();
+            exception.printStackTrace(new PrintWriter(stringWriter));
+            new ErrorWindow(stringWriter.toString());
         }
 
 

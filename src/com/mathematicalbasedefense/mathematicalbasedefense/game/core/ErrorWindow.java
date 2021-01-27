@@ -15,7 +15,7 @@ public class ErrorWindow {
         errorWindow.setSize(600, 400);
         errorWindow.setResizable(false);
         errorWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        errorWindow.setTitle("Mathematical Base Defense 0.2.0");
+        errorWindow.setTitle("Mathematical Base Defense 0.3.0");
         label.setText("An error has occurred while the game is running.");
         errorWindow.getContentPane().setLayout(new FlowLayout());
 
