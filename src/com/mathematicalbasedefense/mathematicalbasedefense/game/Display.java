@@ -9,6 +9,7 @@ package com.mathematicalbasedefense.mathematicalbasedefense.game;
  */
 
 
+import com.mathematicalbasedefense.mathematicalbasedefense.game.networking.Authentication;
 import com.mathematicalbasedefense.mathematicalbasedefense.game.userinterface.animations.Fade;
 import com.mathematicalbasedefense.mathematicalbasedefense.game.core.*;
 import com.mathematicalbasedefense.mathematicalbasedefense.game.userinterface.*;
@@ -86,9 +87,14 @@ public class Display extends JFrame implements KeyListener, MouseListener {
     //settings
     BufferedImage settingsAudioSectionButtonImage;
     BufferedImage settingsVideoSectionButtonImage;
+    BufferedImage settingsOnlineSectionButtonImage;
     BufferedImage settingsBackButtonImage;
     BufferedImage settingsLeftArrowButtonImage;
     BufferedImage settingsRightArrowButtonImage;
+    BufferedImage settingsSelectLoginCodeButtonImage;
+    BufferedImage settingsSelectUsernameButtonImage;
+
+
 
     //credits
     BufferedImage creditsBackButtonImage;
@@ -197,12 +203,13 @@ public class Display extends JFrame implements KeyListener, MouseListener {
 
     public static boolean cursorIsHoveringOnSettingsVideoSectionButton = false;
     public static boolean cursorIsHoveringOnSettingsAudioSectionButton = false;
+    public static boolean cursorIsHoveringOnSettingsOnlineSectionButton = false;
     public static boolean cursorIsHoveringOnSettingsBackButton = false;
 
     public static boolean cursorIsHoveringOnCreditsBackButton = false;
 
     public static int[] mainMenuScreenButtonsXOffset = new int[8];
-    public static int[] settingsScreenButtonsXOffset = new int[3];
+    public static int[] settingsScreenButtonsXOffset = new int[4];
     public static int creditsScreenBackButtonXOffset = -400;
 
 
@@ -267,6 +274,7 @@ public class Display extends JFrame implements KeyListener, MouseListener {
         NONE,
         SETTINGS_VIDEO_SCREEN,
         SETTINGS_AUDIO_SCREEN,
+        SETTINGS_ONLINE_SCREEN
     }
 
     public enum Language {
@@ -279,6 +287,11 @@ public class Display extends JFrame implements KeyListener, MouseListener {
         OFF,
     }
 
+    public enum UserCredential {
+        USERNAME,
+        LOGIN_CODE,
+    }
+
 
 
     public static State currentState = State.MAIN_MENU_SCREEN;
@@ -286,7 +299,7 @@ public class Display extends JFrame implements KeyListener, MouseListener {
     public static Subscreen currentSubscreenShown = Subscreen.NONE;
     public static Language currentLanguage = Language.ENGLISH;
     public static SoundLevel currentSoundLevel = SoundLevel.ON;
-
+    public static UserCredential userCredentialToWriteOn = UserCredential.USERNAME;
 
     public JFrame displayWindow = new JFrame();
 
@@ -315,7 +328,7 @@ public class Display extends JFrame implements KeyListener, MouseListener {
             displayWindow = new JFrame();
 
 
-            displayWindow.setTitle("Mathematical Base Defense 0.2.0");
+            displayWindow.setTitle("Mathematical Base Defense 0.3.0");
             displayWindow.setIconImage(ImageIO.read(new BufferedInputStream(new FileInputStream(new File(System.getenv("LOCALAPPDATA") + "/MathematicalBaseDefense/game/assets/images/logo.png")))));
             displayWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             displayWindow.setResizable(false);
@@ -478,6 +491,10 @@ public class Display extends JFrame implements KeyListener, MouseListener {
                                 Display.currentSubscreenShown = Subscreen.SETTINGS_AUDIO_SCREEN;
                                 break;
                             }
+                            case "settingsOnlineSectionButtonBounds" : {
+                                Display.currentSubscreenShown = Subscreen.SETTINGS_ONLINE_SCREEN;
+                                break;
+                            }
                             case "settingsBackButtonBounds": {
                                 Game.updateSettingsJSONFile();
                                 changeMainMenuScreenButtons(Screen.SETTINGS_SCREEN, Screen.MAIN_MENU_SCREEN);
@@ -512,6 +529,19 @@ public class Display extends JFrame implements KeyListener, MouseListener {
                                     }
                                 }
                                 break;
+                            }
+                            case SETTINGS_ONLINE_SCREEN: {
+                                switch (settingsScreenImageButtonPanelNames.get(i)){
+                                    case "settingsSelectLoginCodeButtonBounds" : {
+                                        userCredentialToWriteOn = UserCredential.LOGIN_CODE;
+
+                                        break;
+                                    }
+                                    case "settingsSelectUsernameButtonBounds" : {
+                                        userCredentialToWriteOn = UserCredential.USERNAME;
+                                        break;
+                                    }
+                                }
                             }
                         }
                     }
@@ -562,44 +592,74 @@ public class Display extends JFrame implements KeyListener, MouseListener {
     @Override
     public void keyReleased(KeyEvent e) {
         LogMessage.logMessage("Pressed and released key " + e.getKeyCode(), LogMessage.MessageType.INFO);
-        switch (e.getKeyCode()) {
-            //Esc --> Sets baseHealth to 0, triggering a Game Over.
-            case KeyEvent.VK_ESCAPE: {
-                if (currentState == State.SINGLEPLAYER_SCREEN_PLAYING) {
-                    baseHealth = 0;
+        if (currentScreenShown != Screen.SETTINGS_SCREEN) {
+            switch (e.getKeyCode()) {
+                //Esc --> Sets baseHealth to 0, triggering a Game Over.
+                case KeyEvent.VK_ESCAPE: {
+                    if (currentState == State.SINGLEPLAYER_SCREEN_PLAYING) {
+                        baseHealth = 0;
+                    }
+                    break;
                 }
-                break;
-            }
-            //F9 --> Toggles Insane Mode
-            case KeyEvent.VK_F9: {
-                NotificationText nt;
-                if (Game.insaneModeActivated) {
-                    nt = new NotificationText("Insane Mode Deactivated...", getComputerModernFontOfSpecifiedSize(32), 0, "ntBounds");
-                } else {
-                    nt = new NotificationText("Insane Mode Activated!", getComputerModernFontOfSpecifiedSize(32), 0, "ntBounds");
-                }
-                aliveNotificationTexts.add(nt);
-                Game.insaneModeActivated = !Game.insaneModeActivated;
-                break;
-            }
-            //F10 --> Toggles Stats Panel Visibility
-            case KeyEvent.VK_F10: {
-                showStatsPanel = !showStatsPanel;
-                break;
-            }
-            //F11 --> Toggles fullscreen
-            case KeyEvent.VK_F11: {
-                if (currentScreenShown != Screen.SINGLEPLAYER_SCREEN) {
-                    toggleFullScreen();
-                } else {
-                    NotificationText nt = new NotificationText("You may not toggle fullscreen during gameplay!", getComputerModernFontOfSpecifiedSize(32), 0, "ntBounds");
+                //F9 --> Toggles Insane Mode
+                case KeyEvent.VK_F9: {
+                    NotificationText nt;
+                    if (Game.insaneModeActivated) {
+                        nt = new NotificationText("Insane Mode Deactivated...", getComputerModernFontOfSpecifiedSize(32), 0, "ntBounds");
+                    } else {
+                        nt = new NotificationText("Insane Mode Activated!", getComputerModernFontOfSpecifiedSize(32), 0, "ntBounds");
+                    }
                     aliveNotificationTexts.add(nt);
+                    Game.insaneModeActivated = !Game.insaneModeActivated;
+                    break;
+                }
+                //F10 --> Toggles Stats Panel Visibility
+                case KeyEvent.VK_F10: {
+                    showStatsPanel = !showStatsPanel;
+                    break;
+                }
+                //F11 --> Toggles fullscreen
+                case KeyEvent.VK_F11: {
+                    if (currentScreenShown != Screen.SINGLEPLAYER_SCREEN) {
+                        toggleFullScreen();
+                    } else {
+                        NotificationText nt = new NotificationText("You may not toggle fullscreen during gameplay!", getComputerModernFontOfSpecifiedSize(32), 0, "ntBounds");
+                        aliveNotificationTexts.add(nt);
+                    }
+
+                    break;
+                }
+            }
+        } else {
+            //current screen shown = setting screen
+            if (e.getKeyChar() == (char) 8) { //check if key char is backspace
+                switch (userCredentialToWriteOn){
+                    case USERNAME: {
+                        if (Game.usernameToLoginWith != null && Game.usernameToLoginWith.length() > 0) {
+                            Game.usernameToLoginWith = Game.usernameToLoginWith.substring(0, Game.usernameToLoginWith.length() - 1);
+                            break;
+                        }
+                    }
+                    case LOGIN_CODE: {
+                        if (Game.loginCodeToLoginWith != null && Game.loginCodeToLoginWith.length() > 0) {
+                            Game.loginCodeToLoginWith = Game.loginCodeToLoginWith.substring(0, Game.loginCodeToLoginWith.length() - 1);
+                            break;
+                        }
+                    }
                 }
 
-                break;
-            }
-            default: {
-                //do nothing
+            }  else {
+                switch (userCredentialToWriteOn){
+                    case USERNAME: {
+                        Game.usernameToLoginWith += e.getKeyChar();
+                        break;
+                    }
+                    case LOGIN_CODE: {
+                        Game.loginCodeToLoginWith += e.getKeyChar();
+                        break;
+                    }
+                }
+
             }
         }
     }
@@ -854,7 +914,7 @@ public class Display extends JFrame implements KeyListener, MouseListener {
                     case SETTINGS_VIDEO_SCREEN: {
                         renderVideoSettingsScreenText();
                         renderText("Enemy Color", (int) (800 * windowWidth / 1920), (int) (160 * windowWidth / 1920), false, false, 1, 1, null, getComputerModernFontOfSpecifiedSize(48), Color.BLACK, englishTextGraphics2D);
-                        for (int i = 3; i < 5; i++){
+                        for (int i = 4; i < 6; i++){
                             renderImage(settingsScreenImageButtonImages.get(i), settingsScreenImageButtonPanels.get(i).getX(), settingsScreenImageButtonPanels.get(i).getY(), null, false, false, 1, 1, settingsScreenImageButtonPanels.get(i), imageButtonGraphics2D);
                         }
                         break;
@@ -862,17 +922,26 @@ public class Display extends JFrame implements KeyListener, MouseListener {
                     case SETTINGS_AUDIO_SCREEN: {
                         renderAudioSettingsScreenText();
                         renderText("Sound", (int) (800 * windowWidth / 1920), (int) (160 * windowWidth / 1920), false, false, 1, 1, null, getComputerModernFontOfSpecifiedSize(48), Color.BLACK, englishTextGraphics2D);
-                        for (int i = 5; i < 7; i++){
+                        for (int i = 6; i < 8; i++){
                             renderImage(settingsScreenImageButtonImages.get(i), settingsScreenImageButtonPanels.get(i).getX(), settingsScreenImageButtonPanels.get(i).getY(), null, false, false, 1, 1, settingsScreenImageButtonPanels.get(i), imageButtonGraphics2D);
                         }
+                        break;
+                    }
+                    case SETTINGS_ONLINE_SCREEN: {
+                        renderText("Username: ", (int) (800 * windowWidth / 1920), (int) (160 * windowWidth / 1920), false, false, 1, 1, null, getComputerModernFontOfSpecifiedSize(48), Color.BLACK, englishTextGraphics2D);
+                        renderText(Game.usernameToLoginWith, (int) (1070 * windowWidth / 1920), (int) (160 * windowWidth / 1920), false, false, 1, 1, null, getComputerModernFontOfSpecifiedSize(48), Color.BLACK, englishTextGraphics2D);
+                        renderText("Login Code: ", (int) (800 * windowWidth / 1920), (int) (280 * windowWidth / 1920), false, false, 1, 1, null, getComputerModernFontOfSpecifiedSize(48), Color.BLACK, englishTextGraphics2D);
+                        renderText(Game.loginCodeToLoginWith, (int) (1070 * windowWidth / 1920), (int) (280 * windowWidth / 1920), false, false, 1, 1, null, getComputerModernFontOfSpecifiedSize(48), Color.BLACK, englishTextGraphics2D);
+
                         break;
                     }
                 }
 
 
-                for (int i = 0; i < 3; i++) {
+                for (int i = 0; i < 4; i++) {
                     renderImage(settingsScreenImageButtonImages.get(i), settingsScreenImageButtonPanels.get(i).getX() + settingsScreenButtonsXOffset[i], settingsScreenImageButtonPanels.get(i).getY(), null, false, false, 1, 1, settingsScreenImageButtonPanels.get(i), imageButtonGraphics2D);
-                }                break;
+                }
+                break;
             }
             case CREDITS_SCREEN: {
                 renderImage(mainMenuScreenImageImages.get(0), mainMenuScreenImagePanels.get(0).getX(), mainMenuScreenImagePanels.get(0).getY(), null, false, false, 1, 1, mainMenuScreenImagePanels.get(0), imageGraphics2D);
@@ -982,6 +1051,7 @@ public class Display extends JFrame implements KeyListener, MouseListener {
                 case SETTINGS_SCREEN: {
                     cursorIsHoveringOnSettingsVideoSectionButton = false;
                     cursorIsHoveringOnSettingsAudioSectionButton = false;
+                    cursorIsHoveringOnSettingsOnlineSectionButton = false;
                     cursorIsHoveringOnSettingsBackButton = false;
                     for (int i = 0; i < settingsScreenImageButtonPanels.size(); i++) {
                         if (hoverDetectionActive) {
@@ -993,6 +1063,10 @@ public class Display extends JFrame implements KeyListener, MouseListener {
                                     }
                                     case "settingsAudioSectionButtonBounds": {
                                         cursorIsHoveringOnSettingsAudioSectionButton = true;
+                                        break;
+                                    }
+                                    case "settingsOnlineSectionButtonBounds": {
+                                        cursorIsHoveringOnSettingsOnlineSectionButton = true;
                                         break;
                                     }
                                     case "settingsBackButtonBounds": {
@@ -1117,7 +1191,8 @@ public class Display extends JFrame implements KeyListener, MouseListener {
             baseImage = ImageIO.read(new BufferedInputStream(new FileInputStream(new File(System.getenv("LOCALAPPDATA") + "/MathematicalBaseDefense/game/assets/images/base.png"))));
             settingsLeftArrowButtonImage = ImageIO.read(new BufferedInputStream(new FileInputStream(new File(System.getenv("LOCALAPPDATA") + "/MathematicalBaseDefense/game/assets/images/settings_left_arrow_button.png"))));
             settingsRightArrowButtonImage = ImageIO.read(new BufferedInputStream(new FileInputStream(new File(System.getenv("LOCALAPPDATA") + "/MathematicalBaseDefense/game/assets/images/settings_right_arrow_button.png"))));
-
+            settingsSelectLoginCodeButtonImage = ImageIO.read(new BufferedInputStream(new FileInputStream(new File(System.getenv("LOCALAPPDATA") + "/MathematicalBaseDefense/game/assets/images/settings_select_login_code_button.png"))));
+            settingsSelectUsernameButtonImage = ImageIO.read(new BufferedInputStream(new FileInputStream(new File(System.getenv("LOCALAPPDATA") + "/MathematicalBaseDefense/game/assets/images/settings_select_username_button.png"))));
 
             //images that ARE affected by selected language
             switch (currentLanguage) {
@@ -1170,6 +1245,7 @@ public class Display extends JFrame implements KeyListener, MouseListener {
             //settings screen
             settingsVideoSectionButtonImage = ImageIO.read(new BufferedInputStream(new FileInputStream(new File(System.getenv("LOCALAPPDATA") + "/MathematicalBaseDefense/game/assets/images/settings_video_section_button" + fileNameEnding + ".png"))));
             settingsAudioSectionButtonImage = ImageIO.read(new BufferedInputStream(new FileInputStream(new File(System.getenv("LOCALAPPDATA") + "/MathematicalBaseDefense/game/assets/images/settings_audio_section_button" + fileNameEnding + ".png"))));
+            settingsOnlineSectionButtonImage = ImageIO.read(new BufferedInputStream(new FileInputStream(new File(System.getenv("LOCALAPPDATA") + "/MathematicalBaseDefense/game/assets/images/settings_online_section_button" + fileNameEnding + ".png"))));
             settingsBackButtonImage  = ImageIO.read(new BufferedInputStream(new FileInputStream(new File(System.getenv("LOCALAPPDATA") + "/MathematicalBaseDefense/game/assets/images/settings_back_button" + fileNameEnding + ".png"))));
 
 
@@ -1198,7 +1274,7 @@ public class Display extends JFrame implements KeyListener, MouseListener {
         ImageButton singleplayerButton = new ImageButton(singleplayerButtonImage, (int) (windowWidth * 60 / 1920), (int) (windowHeight * 460 / 1080), (singleplayerButtonImage.getWidth() * windowWidth / 1920), (singleplayerButtonImage.getHeight() * windowHeight / 1080),  "singleplayerButton", "singleplayerButtonBounds", Display.Screen.MAIN_MENU_SCREEN, bufferStrategy);
         ImageButton multiplayerButton = new ImageButton(multiplayerButtonImage, (int) (windowWidth * 60 / 1920), (int) (windowHeight * 540 / 1080), (multiplayerButtonImage.getWidth() * windowWidth / 1920), (multiplayerButtonImage.getHeight() * windowHeight / 1080),  "multiplayerButton", "multiplayerButtonBounds", Display.Screen.MAIN_MENU_SCREEN, bufferStrategy);
         ImageButton shopButton = new ImageButton(shopButtonImage, (int) (windowWidth * 60 / 1920), (int) (windowHeight * 620 / 1080), (shopButtonImage.getWidth() * windowWidth / 1920), (shopButtonImage.getHeight() * windowHeight / 1080),  "shopButton", "shopButtonBounds", Display.Screen.MAIN_MENU_SCREEN, bufferStrategy);
-        ImageButton optionsButton = new ImageButton(settingsButtonImage, (int) (windowWidth * 60 / 1920), (int) (windowHeight * 700 / 1080), (settingsButtonImage.getWidth() * windowWidth / 1920), (settingsButtonImage.getHeight() * windowHeight / 1080),  "settingsButton", "settingsButtonBounds", Display.Screen.MAIN_MENU_SCREEN, bufferStrategy);
+        ImageButton settingsButton = new ImageButton(settingsButtonImage, (int) (windowWidth * 60 / 1920), (int) (windowHeight * 700 / 1080), (settingsButtonImage.getWidth() * windowWidth / 1920), (settingsButtonImage.getHeight() * windowHeight / 1080),  "settingsButton", "settingsButtonBounds", Display.Screen.MAIN_MENU_SCREEN, bufferStrategy);
         ImageButton creditsButton = new ImageButton(creditsButtonImage, (int) (windowWidth * 60 / 1920), (int) (windowHeight * 780 / 1080), (creditsButtonImage.getWidth() * windowWidth / 1920), (creditsButtonImage.getHeight() * windowHeight / 1080),  "creditsButton", "creditsButtonBounds", Display.Screen.MAIN_MENU_SCREEN, bufferStrategy);
         ImageButton quitButton = new ImageButton(quitButtonImage, (int) (windowWidth * 60 / 1920), (int) (windowHeight * 860 / 1080), (quitButtonImage.getWidth() * windowWidth / 1920), (quitButtonImage.getHeight() * windowHeight / 1080),  "quitButton", "quitButtonBounds", Display.Screen.MAIN_MENU_SCREEN, bufferStrategy);
         ImageButton schoolLogo = new ImageButton(schoolLogoImage, (int) (windowWidth * 0.005), (int) (windowHeight * 0.9), (schoolLogoImage.getWidth() * windowWidth / 1920), (schoolLogoImage.getHeight() * windowHeight / 1080),  "schoolLogo", "schoolLogoBounds", Display.Screen.MAIN_MENU_SCREEN, bufferStrategy);
@@ -1250,6 +1326,7 @@ public class Display extends JFrame implements KeyListener, MouseListener {
         //settings screen
         ImageButton settingsVideoSectionButton = new ImageButton(settingsVideoSectionButtonImage, (int) (windowWidth * 60 / 1920), (int) (windowHeight * 460 / 1080), (settingsVideoSectionButtonImage.getWidth() * windowWidth / 1920), (settingsVideoSectionButtonImage.getHeight() * windowHeight / 1080),  "settingsVideoSectionButton", "settingsVideoSectionButtonBounds", Display.Screen.SETTINGS_SCREEN, bufferStrategy);
         ImageButton settingsAudioSectionButton = new ImageButton(settingsAudioSectionButtonImage, (int) (windowWidth * 60 / 1920), (int) (windowHeight * 540 / 1080), (settingsAudioSectionButtonImage.getWidth() * windowWidth / 1920), (settingsAudioSectionButtonImage.getHeight() * windowHeight / 1080),  "settingsAudioSectionButton", "settingsAudioSectionButtonBounds", Display.Screen.SETTINGS_SCREEN, bufferStrategy);
+        ImageButton settingsOnlineSectionButton = new ImageButton(settingsOnlineSectionButtonImage, (int) (windowWidth * 60 / 1920), (int) (windowHeight * 620 / 1080), (settingsOnlineSectionButtonImage.getWidth() * windowWidth / 1920), (settingsOnlineSectionButtonImage.getHeight() * windowHeight / 1080),  "settingsOnlineSectionButton", "settingsOnlineSectionButtonBounds", Display.Screen.SETTINGS_SCREEN, bufferStrategy);
         ImageButton settingsBackButton = new ImageButton(settingsBackButtonImage, (int) (windowWidth * 60 / 1920), (int) (windowHeight * 860 / 1080), (settingsBackButtonImage.getWidth() * windowWidth / 1920), (settingsBackButtonImage.getHeight() * windowHeight / 1080),  "settingsBackButton", "settingsBackButtonBounds", Display.Screen.SETTINGS_SCREEN, bufferStrategy);
         
         //enemy color selection
@@ -1260,6 +1337,9 @@ public class Display extends JFrame implements KeyListener, MouseListener {
         ImageButton settingsLeftArrowForSoundVolumeSelectionButton = new ImageButton(settingsLeftArrowButtonImage, (int) windowWidth * 1300 / 1920, (int) windowHeight * 200 / 1920, (settingsLeftArrowButtonImage.getWidth() * windowWidth / 1920), (settingsLeftArrowButtonImage.getHeight() * windowHeight / 1080), "settingsLeftArrowForSoundVolumeSelectionButton", "settingsLeftArrowForSoundVolumeSelectionButtonBounds", Display.Screen.SETTINGS_SCREEN, bufferStrategy);
         ImageButton settingsRightArrowForSoundVolumeSelectionButton = new ImageButton(settingsRightArrowButtonImage, (int) windowWidth * 1700 / 1920, (int) windowHeight * 200 / 1920, (settingsRightArrowButtonImage.getWidth() * windowWidth / 1920), (settingsRightArrowButtonImage.getHeight() * windowHeight / 1080), "settingsRightArrowForSoundVolumeSelectionButton", "settingsRightArrowForSoundVolumeSelectionButtonBounds", Display.Screen.SETTINGS_SCREEN, bufferStrategy);
 
+        //online screen
+        ImageButton settingsSelectLoginCodeButton = new ImageButton(settingsSelectLoginCodeButtonImage, (int) windowWidth * 1040 / 1920, (int) windowHeight * 280 / 1920, (settingsSelectLoginCodeButtonImage.getWidth() * windowWidth / 1920), (settingsSelectLoginCodeButtonImage.getHeight() * windowHeight / 1080), "ssettingsSelectLoginCodeButton", "settingsSelectLoginCodeButtonBounds", Display.Screen.SETTINGS_SCREEN, bufferStrategy);
+        ImageButton settingsSelectUsernameButton = new ImageButton(settingsSelectUsernameButtonImage, (int) windowWidth * 1040 / 1920, (int) windowHeight * 160 / 1920, (settingsSelectUsernameButtonImage.getWidth() * windowWidth / 1920), (settingsSelectUsernameButtonImage.getHeight() * windowHeight / 1080), "ssettingsSelectUsernameButton", "settingsSelectUsernameButtonBounds", Display.Screen.SETTINGS_SCREEN, bufferStrategy);
 
         //credits screen
         ImageButton creditsBackButton = new ImageButton(creditsBackButtonImage, (int) (windowWidth * 60 / 1920), (int) (windowHeight * 860 / 1080), (creditsButtonImage.getWidth() * windowWidth / 1920), (creditsButtonImage.getHeight() * windowHeight / 1080),  "creditsBackButton", "creditsBackButtonBounds", Display.Screen.CREDITS_SCREEN, bufferStrategy);
@@ -1662,7 +1742,7 @@ public class Display extends JFrame implements KeyListener, MouseListener {
                 for (int j = 0; j < 200; j++) {
                     try {
                         Thread.sleep(2);
-                        for (int k = 0; k < 3; k++) {
+                        for (int k = 0; k < 4; k++) {
                             settingsScreenButtonsXOffset[k] = (int) (-(2 * (j+1)) * windowWidth / 1920);
                         }
                     } catch (Exception exception) {
@@ -1705,7 +1785,7 @@ public class Display extends JFrame implements KeyListener, MouseListener {
                 for (int j = 0; j < 200; j++) {
                     try {
                         Thread.sleep(2);
-                        for (int k = 0; k < 3; k++) {
+                        for (int k = 0; k < 4; k++) {
                             settingsScreenButtonsXOffset[k] = (int) (-400 + (2 * (j+1))) * windowWidth / 1920;
                         }
                     } catch (Exception exception) {
