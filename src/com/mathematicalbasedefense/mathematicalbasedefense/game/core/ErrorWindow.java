@@ -27,6 +27,7 @@ public class ErrorWindow {
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 
+
         errorWindow.getContentPane().add(scrollPane);
         errorWindow.add(label);
         errorWindow.setVisible(true);

@@ -22,6 +22,9 @@ import sun.audio.AudioStream;
 
 
 import javax.imageio.ImageIO;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -1822,11 +1825,12 @@ public class Display extends JFrame implements KeyListener, MouseListener {
     public static void playSound(String path) {
         if (currentSoundLevel == SoundLevel.ON) {
             try {
-                InputStream inputStream = new FileInputStream(path);
-                AudioStream audioStream = new AudioStream(inputStream);
-                AudioPlayer.player.start(audioStream);
-            } catch (Exception e) {
-                e.printStackTrace();
+                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(path).getAbsoluteFile());
+                Clip clip = AudioSystem.getClip();
+                clip.open(audioInputStream);
+                clip.start();
+            } catch(Exception exception) {
+                exception.printStackTrace();
             }
         }
     }
