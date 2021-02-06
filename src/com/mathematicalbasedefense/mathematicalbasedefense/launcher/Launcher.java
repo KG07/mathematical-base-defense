@@ -13,26 +13,28 @@ package com.mathematicalbasedefense.mathematicalbasedefense.launcher;
 import com.mathematicalbasedefense.mathematicalbasedefense.game.core.ErrorWindow;
 
 import java.io.*;
+import java.nio.ByteBuffer;
 import java.util.ArrayList;
 
 import com.mathematicalbasedefense.mathematicalbasedefense.game.core.LogMessage;
+import com.mathematicalbasedefense.mathematicalbasedefense.game.networking.Authentication;
 import org.apache.commons.io.FileUtils;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
 import javax.imageio.ImageIO;
 
+
 public class Launcher {
     public static void main(String[] args) {
+
         initializeFiles();
 
-        if (!getVersionNumberFromMetadataJSONFile().equals("0.3.0")){
+        if (!getVersionNumberFromMetadataJSONFile().equals("0.3.0-ALPHA")){
             updateFilesToLatestVersion();
         }
 
-
-
-        writeVersionNumberToMetadataJSONFile("0.3.0");
+        writeVersionNumberToMetadataJSONFile("0.3.0-ALPHA");
         new LauncherWindow();
     }
 
@@ -89,6 +91,7 @@ public class Launcher {
 
 
         //game files
+
         //fonts
         namesOfGameFilesToCheck.add("game\\assets\\fonts\\computermodern.ttf");
         //images and imagebuttons
@@ -113,6 +116,8 @@ public class Launcher {
         namesOfGameFilesToCheck.add("game\\assets\\images\\settings_left_arrow_button.png");
         namesOfGameFilesToCheck.add("game\\assets\\images\\settings_online_section_button-en.png");
         namesOfGameFilesToCheck.add("game\\assets\\images\\settings_right_arrow_button.png");
+        namesOfGameFilesToCheck.add("game\\assets\\images\\settings_select_login_code_button.png");
+        namesOfGameFilesToCheck.add("game\\assets\\images\\settings_select_username_button.png");
         namesOfGameFilesToCheck.add("game\\assets\\images\\settings_video_section_button-en.png");
         namesOfGameFilesToCheck.add("game\\assets\\images\\shop_button-en.png");
         namesOfGameFilesToCheck.add("game\\assets\\images\\singleplayer_button-en.png");
@@ -127,7 +132,6 @@ public class Launcher {
         namesOfGameFilesToCheck.add("game\\metadata.json");
         //logs file
         namesOfGameFilesToCheck.add("game\\logs.txt");
-
 
         try {
             for (int i = 0; i < namesOfGameFilesToCheck.size(); i++) {
@@ -206,7 +210,8 @@ public class Launcher {
 
 
     public static void updateFilesToLatestVersion(){
-        LogMessage.logMessage("Versions do not match! Current version is 0.3.0 but metadata.json's version key is " + getVersionNumberFromMetadataJSONFile(), LogMessage.MessageType.INFO);
+        LogMessage.logMessage("Versions do not match! Current version is 0.3.0-ALPHA but metadata.json's version key is " + getVersionNumberFromMetadataJSONFile(), LogMessage.MessageType.INFO);
+
         //actually update files
 
 

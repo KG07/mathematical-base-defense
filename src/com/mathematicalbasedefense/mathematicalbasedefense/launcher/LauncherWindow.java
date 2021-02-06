@@ -113,7 +113,7 @@ public class LauncherWindow implements ActionListener {
             titleLabel.setText("Mathematical Base Defense");
 
             versionLabel.setFont(computerModernFont16Pixels);
-            versionLabel.setText("0.3.0");
+            versionLabel.setText("0.3.0-ALPHA");
 
             launchGameButtonTextLabel.setFont(computerModernFont20Pixels);
             launchGameButtonTextLabel.setText("Launch Mathematical Base Defense");

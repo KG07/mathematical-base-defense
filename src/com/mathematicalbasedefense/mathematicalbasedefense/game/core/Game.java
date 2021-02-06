@@ -3,6 +3,7 @@ package com.mathematicalbasedefense.mathematicalbasedefense.game.core;
 import com.mathematicalbasedefense.mathematicalbasedefense.game.Display;
 ;
 import com.mathematicalbasedefense.mathematicalbasedefense.game.entities.Enemy;
+import com.mathematicalbasedefense.mathematicalbasedefense.game.networking.Authentication;
 import org.json.*;
 
 import javax.swing.*;
@@ -76,6 +77,12 @@ public class Game {
     public int enemiesSpawned;
     public static boolean insaneModeActivated = false;
 
+
+    //online variables
+    public static String usernameToLoginWith = "";
+    public static String loginCodeToLoginWith = "";
+
+
     //declare fonts
 
 
@@ -119,6 +126,7 @@ public class Game {
         Arrays.fill(Display.settingsScreenButtonsXOffset, -400);
         getVariablesFromSettingsJSONFile();
 
+
     }
 
 
@@ -153,10 +161,11 @@ public class Game {
 
 
         //Settings screen
-        boolean[] cursorIsHoveringOverSettingsButton = new boolean[3];
+        boolean[] cursorIsHoveringOverSettingsButton = new boolean[4];
         cursorIsHoveringOverSettingsButton[0] = Display.cursorIsHoveringOnSettingsVideoSectionButton;
         cursorIsHoveringOverSettingsButton[1] = Display.cursorIsHoveringOnSettingsAudioSectionButton;
-        cursorIsHoveringOverSettingsButton[2] = Display.cursorIsHoveringOnSettingsBackButton;
+        cursorIsHoveringOverSettingsButton[2] = Display.cursorIsHoveringOnSettingsOnlineSectionButton;
+        cursorIsHoveringOverSettingsButton[3] = Display.cursorIsHoveringOnSettingsBackButton;
 
         for (int i = 0; i < cursorIsHoveringOverSettingsButton.length; i++) {
             if (cursorIsHoveringOverSettingsButton[i]) {
@@ -207,7 +216,7 @@ public class Game {
 
         //Moves enemies
         for (int i = 0; i < aliveEnemies.size(); i++) {
-            Game.aliveEnemies.get(i).move((int) (random.nextInt(5) * windowWidth / 1920));
+            Game.aliveEnemies.get(i).move((int) ((random.nextInt(5) + 1) * windowWidth / 1920));
         }
 
         if (baseHealth <= 0 && Display.currentState == Display.State.SINGLEPLAYER_SCREEN_PLAYING && Display.currentScreenShown == Display.Screen.SINGLEPLAYER_SCREEN) {
