@@ -1819,7 +1819,7 @@ public class Display extends JFrame implements KeyListener, MouseListener {
 
     /**
      * Plays a sound file from the path specified.
-     * @param path The path.
+     * @param path The path to the sound file.
      */
 
     public static void playSound(String path) {
