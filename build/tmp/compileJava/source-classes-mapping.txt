@@ -2,24 +2,24 @@ com/mathematicalbasedefense/mathematicalbasedefense/game/networking/Authenticati
  com.mathematicalbasedefense.mathematicalbasedefense.game.networking.Authentication
 com/mathematicalbasedefense/mathematicalbasedefense/game/core/TermGenerator.java
  com.mathematicalbasedefense.mathematicalbasedefense.game.core.TermGenerator
+com/mathematicalbasedefense/mathematicalbasedefense/launcher/LauncherWindow.java
+ com.mathematicalbasedefense.mathematicalbasedefense.launcher.LauncherWindow
 com/mathematicalbasedefense/mathematicalbasedefense/game/core/LogMessage.java
  com.mathematicalbasedefense.mathematicalbasedefense.game.core.LogMessage
  com.mathematicalbasedefense.mathematicalbasedefense.game.core.LogMessage$1
  com.mathematicalbasedefense.mathematicalbasedefense.game.core.LogMessage$MessageType
-com/mathematicalbasedefense/mathematicalbasedefense/launcher/LauncherWindow.java
- com.mathematicalbasedefense.mathematicalbasedefense.launcher.LauncherWindow
-com/mathematicalbasedefense/mathematicalbasedefense/launcher/Launcher.java
- com.mathematicalbasedefense.mathematicalbasedefense.launcher.Launcher
 com/mathematicalbasedefense/mathematicalbasedefense/game/core/ErrorWindow.java
  com.mathematicalbasedefense.mathematicalbasedefense.game.core.ErrorWindow
+com/mathematicalbasedefense/mathematicalbasedefense/game/core/Tick.java
+ com.mathematicalbasedefense.mathematicalbasedefense.game.core.Tick
 com/mathematicalbasedefense/mathematicalbasedefense/game/userinterface/animations/Fade.java
  com.mathematicalbasedefense.mathematicalbasedefense.game.userinterface.animations.Fade
 com/mathematicalbasedefense/mathematicalbasedefense/game/networking/Server.java
  com.mathematicalbasedefense.mathematicalbasedefense.game.networking.Server
 com/mathematicalbasedefense/mathematicalbasedefense/game/entities/Enemy.java
  com.mathematicalbasedefense.mathematicalbasedefense.game.entities.Enemy
-com/mathematicalbasedefense/mathematicalbasedefense/game/core/Tick.java
- com.mathematicalbasedefense.mathematicalbasedefense.game.core.Tick
+com/mathematicalbasedefense/mathematicalbasedefense/launcher/Launcher.java
+ com.mathematicalbasedefense.mathematicalbasedefense.launcher.Launcher
 com/mathematicalbasedefense/mathematicalbasedefense/game/core/Evaluator.java
  com.mathematicalbasedefense.mathematicalbasedefense.game.core.Evaluator
 com/mathematicalbasedefense/mathematicalbasedefense/game/userinterface/EmptyPanel.java

@@ -176,9 +176,15 @@ public class LauncherWindow implements ActionListener {
     public void actionPerformed(ActionEvent actionEvent){
             //launch game button
         if (actionEvent.getSource() == launchGameButton){
-            launcherWindow.dispose();
-            Game.initializeVariables();
-            new Thread(new Loop(new Game(selectedResolutionWidth, selectedResolutionHeight))).start();
+            try {
+                Game.initializeVariables();
+                new Thread(new Loop(new Game(selectedResolutionWidth, selectedResolutionHeight))).start();
+                launcherWindow.dispose();
+            } catch (Exception exception){
+                StringWriter stringWriter = new StringWriter();
+                exception.printStackTrace(new PrintWriter(stringWriter));
+                new ErrorWindow(stringWriter.toString());
+            }
 
             //resolution selection box
         } else if (actionEvent.getSource() == resolutionSelectionBox){

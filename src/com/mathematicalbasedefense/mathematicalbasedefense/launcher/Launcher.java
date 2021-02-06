@@ -28,6 +28,7 @@ import javax.imageio.ImageIO;
 public class Launcher {
     public static void main(String[] args) {
 
+
         initializeFiles();
 
         if (!getVersionNumberFromMetadataJSONFile().equals("0.3.0-ALPHA")){
