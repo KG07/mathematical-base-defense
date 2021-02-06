@@ -1816,7 +1816,6 @@ public class Display extends JFrame implements KeyListener, MouseListener {
         hoverDetectionActive = true;
     }
 
-
     /**
      * Plays a sound file from the path specified.
      * @param path The path to the sound file.
