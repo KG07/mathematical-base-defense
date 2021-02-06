@@ -5,8 +5,10 @@ com/mathematicalbasedefense/mathematicalbasedefense/game/core/TermGenerator.java
 com/mathematicalbasedefense/mathematicalbasedefense/game/userinterface/Image.java
  com.mathematicalbasedefense.mathematicalbasedefense.game.userinterface.Image
  com.mathematicalbasedefense.mathematicalbasedefense.game.userinterface.Image$1
-com/mathematicalbasedefense/mathematicalbasedefense/launcher/LauncherWindow.java
- com.mathematicalbasedefense.mathematicalbasedefense.launcher.LauncherWindow
+com/mathematicalbasedefense/mathematicalbasedefense/game/core/LogMessage.java
+ com.mathematicalbasedefense.mathematicalbasedefense.game.core.LogMessage
+ com.mathematicalbasedefense.mathematicalbasedefense.game.core.LogMessage$1
+ com.mathematicalbasedefense.mathematicalbasedefense.game.core.LogMessage$MessageType
 com/mathematicalbasedefense/mathematicalbasedefense/game/userinterface/NotificationText.java
  com.mathematicalbasedefense.mathematicalbasedefense.game.userinterface.NotificationText
 com/mathematicalbasedefense/mathematicalbasedefense/game/core/ErrorWindow.java
@@ -46,14 +48,12 @@ com/mathematicalbasedefense/mathematicalbasedefense/game/Display.java
  com.mathematicalbasedefense.mathematicalbasedefense.game.Display$State
  com.mathematicalbasedefense.mathematicalbasedefense.game.Display$Subscreen
  com.mathematicalbasedefense.mathematicalbasedefense.game.Display$UserCredential
-com/mathematicalbasedefense/mathematicalbasedefense/launcher/Launcher.java
- com.mathematicalbasedefense.mathematicalbasedefense.launcher.Launcher
 com/mathematicalbasedefense/mathematicalbasedefense/game/core/Game.java
  com.mathematicalbasedefense.mathematicalbasedefense.game.core.Game
  com.mathematicalbasedefense.mathematicalbasedefense.game.core.Game$1
  com.mathematicalbasedefense.mathematicalbasedefense.game.core.Game$EnemyColor
  com.mathematicalbasedefense.mathematicalbasedefense.game.core.Game$TermType
-com/mathematicalbasedefense/mathematicalbasedefense/game/core/LogMessage.java
- com.mathematicalbasedefense.mathematicalbasedefense.game.core.LogMessage
- com.mathematicalbasedefense.mathematicalbasedefense.game.core.LogMessage$1
- com.mathematicalbasedefense.mathematicalbasedefense.game.core.LogMessage$MessageType
+com/mathematicalbasedefense/mathematicalbasedefense/launcher/LauncherWindow.java
+ com.mathematicalbasedefense.mathematicalbasedefense.launcher.LauncherWindow
+com/mathematicalbasedefense/mathematicalbasedefense/launcher/Launcher.java
+ com.mathematicalbasedefense.mathematicalbasedefense.launcher.Launcher
