@@ -3,7 +3,7 @@ plugins {
 }
 
 group 'com.mathematicalbasedefense'
-version '0.3.0'
+version '0.3.0-ALPHA'
 
 repositories {
     mavenCentral()
@@ -33,11 +33,7 @@ dependencies {
     compile 'org.scilab.forge:jlatexmath:1.0.7'
     compile 'commons-io:commons-io:2.8.0'
     compile group: 'org.json', name: 'json', version: '20201115'
-    compile 'com.google.cloud:google-cloud-firestore:2.2.0'
-    compile "com.google.cloud:google-cloud-storage:1.17.0"
     implementation platform('com.google.cloud:libraries-bom:16.3.0')
-    compile 'com.google.cloud:google-cloud-secretmanager'
-    compile "org.springframework.cloud:spring-cloud-gcp-dependencies:1.2.3.RELEASE"
 }
 
 task fatJar(type: Jar) {

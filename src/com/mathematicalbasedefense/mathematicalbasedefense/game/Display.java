@@ -328,7 +328,7 @@ public class Display extends JFrame implements KeyListener, MouseListener {
             displayWindow = new JFrame();
 
 
-            displayWindow.setTitle("Mathematical Base Defense 0.3.0");
+            displayWindow.setTitle("Mathematical Base Defense 0.3.0-ALPHA");
             displayWindow.setIconImage(ImageIO.read(new BufferedInputStream(new FileInputStream(new File(System.getenv("LOCALAPPDATA") + "/MathematicalBaseDefense/game/assets/images/logo.png")))));
             displayWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             displayWindow.setResizable(false);
@@ -362,6 +362,8 @@ public class Display extends JFrame implements KeyListener, MouseListener {
 
             canvas.createBufferStrategy(3);
             bufferStrategy = canvas.getBufferStrategy();
+
+
             //show display
             displayWindow.setLocationRelativeTo(null);
             displayWindow.setVisible(true);
@@ -1771,7 +1773,7 @@ public class Display extends JFrame implements KeyListener, MouseListener {
                     try {
                         Thread.sleep(2);
                         for (int k = 0; k < 6; k++) {
-                            mainMenuScreenButtonsXOffset[k] = (int) (-400 + (2 * (j+1)) * windowWidth / 1920);
+                            mainMenuScreenButtonsXOffset[k] = (((int) (-400 + (2 * (j+1)))) * windowWidth / 1920);
                         }
                     } catch (Exception exception) {
                         exception.printStackTrace();
@@ -1786,7 +1788,7 @@ public class Display extends JFrame implements KeyListener, MouseListener {
                     try {
                         Thread.sleep(2);
                         for (int k = 0; k < 4; k++) {
-                            settingsScreenButtonsXOffset[k] = (int) (-400 + (2 * (j+1))) * windowWidth / 1920;
+                            settingsScreenButtonsXOffset[k] = (((int) (-400 + (2 * (j+1)))) * windowWidth / 1920);
                         }
                     } catch (Exception exception) {
                         exception.printStackTrace();
@@ -1800,7 +1802,7 @@ public class Display extends JFrame implements KeyListener, MouseListener {
                 for (int j = 0; j < 200; j++) {
                     try {
                         Thread.sleep(2);
-                        creditsScreenBackButtonXOffset = (int) (-400 + (2 * (j+1))) * windowWidth / 1920;
+                        creditsScreenBackButtonXOffset = (((int) (-400 + (2 * (j+1)))) * windowWidth / 1920);
                     } catch (Exception exception) {
                         exception.printStackTrace();
                     }

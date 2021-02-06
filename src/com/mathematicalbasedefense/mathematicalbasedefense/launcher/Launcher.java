@@ -10,14 +10,6 @@ package com.mathematicalbasedefense.mathematicalbasedefense.launcher;
  *
  */
 
-import com.google.api.core.ApiFuture;
-import com.google.auth.Credentials;
-import com.google.auth.oauth2.GoogleCredentials;
-import com.google.cloud.firestore.DocumentSnapshot;
-import com.google.cloud.firestore.Firestore;
-import com.google.cloud.firestore.FirestoreOptions;
-import com.google.cloud.storage.Storage;
-import com.google.cloud.storage.StorageOptions;
 import com.mathematicalbasedefense.mathematicalbasedefense.game.core.ErrorWindow;
 
 import java.io.*;
@@ -32,27 +24,17 @@ import org.json.JSONTokener;
 
 import javax.imageio.ImageIO;
 
-import static com.mathematicalbasedefense.mathematicalbasedefense.game.networking.Authentication.readData;
 
 public class Launcher {
     public static void main(String[] args) {
 
-
-        try {
-            readData();
-        } catch (IOException ioException) {
-            ioException.printStackTrace();
-        }
-
         initializeFiles();
 
-        if (!getVersionNumberFromMetadataJSONFile().equals("0.3.0")){
+        if (!getVersionNumberFromMetadataJSONFile().equals("0.3.0-ALPHA")){
             updateFilesToLatestVersion();
         }
 
-
-
-        writeVersionNumberToMetadataJSONFile("0.3.0");
+        writeVersionNumberToMetadataJSONFile("0.3.0-ALPHA");
         new LauncherWindow();
     }
 
@@ -151,32 +133,6 @@ public class Launcher {
         //logs file
         namesOfGameFilesToCheck.add("game\\logs.txt");
 
-
-        try {
-            Credentials credentials = GoogleCredentials.fromStream(new FileInputStream("path/to/file"));
-            Storage storage = StorageOptions.newBuilder().setCredentials(credentials).setProjectId("mathematicalbasedefense").build().getService();
-
-            FirestoreOptions firestoreOptions = FirestoreOptions.getDefaultInstance().toBuilder().setProjectId("mathematicalbasedefense").build();
-            Firestore database = firestoreOptions.getService();
-
-
-
-            ApiFuture<DocumentSnapshot> future = database.collection("users").document("9uOOdXY7hyaXGkrrSW0pkSMUeNI3").get();
-            DocumentSnapshot document = future.get();
-
-            if (document.exists()) {
-                System.out.println("Document data: " + document.getData());
-            } else {
-                System.out.println("No such document!");
-            }
-        } catch (Exception exception) {
-            StringWriter stringWriter = new StringWriter();
-            exception.printStackTrace(new PrintWriter(stringWriter));
-            new ErrorWindow(stringWriter.toString());
-        }
-
-
-
         try {
             for (int i = 0; i < namesOfGameFilesToCheck.size(); i++) {
                 File fileToCheck = new File(System.getenv("LOCALAPPDATA") + "\\MathematicalBaseDefense\\" + namesOfGameFilesToCheck.get(i));
@@ -254,7 +210,8 @@ public class Launcher {
 
 
     public static void updateFilesToLatestVersion(){
-        LogMessage.logMessage("Versions do not match! Current version is 0.3.0 but metadata.json's version key is " + getVersionNumberFromMetadataJSONFile(), LogMessage.MessageType.INFO);
+        LogMessage.logMessage("Versions do not match! Current version is 0.3.0-ALPHA but metadata.json's version key is " + getVersionNumberFromMetadataJSONFile(), LogMessage.MessageType.INFO);
+
         //actually update files
 
 

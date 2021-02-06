@@ -216,7 +216,7 @@ public class Game {
 
         //Moves enemies
         for (int i = 0; i < aliveEnemies.size(); i++) {
-            Game.aliveEnemies.get(i).move((int) (random.nextInt(5) * windowWidth / 1920));
+            Game.aliveEnemies.get(i).move((int) ((random.nextInt(5) + 1) * windowWidth / 1920));
         }
 
         if (baseHealth <= 0 && Display.currentState == Display.State.SINGLEPLAYER_SCREEN_PLAYING && Display.currentScreenShown == Display.Screen.SINGLEPLAYER_SCREEN) {
