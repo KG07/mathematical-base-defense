@@ -1,4 +1,6 @@
-# ปกป้องฐานด้วยคณิตศาสตร์ - Mathematical Base Defense
+# ปกป้องฐานด้วยคณิตศาสตร์: ต้นกำเนิด - Mathematical Base Defense: Origin
+
+**PROJECT HAS MOVED TO https://github.com/mistertfy64/mathematical-base-defense**
 
 Mathematical Base Defense is a educational game about making math equations to destroy enemies while protecting your base in the process.
 
