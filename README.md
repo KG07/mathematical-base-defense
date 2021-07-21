@@ -1,66 +1,6 @@
 # ปกป้องฐานด้วยคณิตศาสตร์: จุดกำเนิด - Mathematical Base Defense: Origin
 
-**PROJECT HAS MOVED TO https://github.com/mistertfy64/mathematicalbasedefense**
-
-**PROJECT HAS MOVED TO https://github.com/mistertfy64/mathematicalbasedefense**
-
-**PROJECT HAS MOVED TO https://github.com/mistertfy64/mathematicalbasedefense**
-
-**PROJECT HAS MOVED TO https://github.com/mistertfy64/mathematicalbasedefense**
-
-**PROJECT HAS MOVED TO https://github.com/mistertfy64/mathematicalbasedefense**
-
-**PROJECT HAS MOVED TO https://github.com/mistertfy64/mathematicalbasedefense**
-
-**PROJECT HAS MOVED TO https://github.com/mistertfy64/mathematicalbasedefense**
-
-**PROJECT HAS MOVED TO https://github.com/mistertfy64/mathematicalbasedefense**
-
-**PROJECT HAS MOVED TO https://github.com/mistertfy64/mathematicalbasedefense**
-
-**PROJECT HAS MOVED TO https://github.com/mistertfy64/mathematicalbasedefense**
-
-**PROJECT HAS MOVED TO https://github.com/mistertfy64/mathematicalbasedefense**
-
-**PROJECT HAS MOVED TO https://github.com/mistertfy64/mathematicalbasedefense**
-
-**PROJECT HAS MOVED TO https://github.com/mistertfy64/mathematicalbasedefense**
-
-**PROJECT HAS MOVED TO https://github.com/mistertfy64/mathematicalbasedefense**
-
-**PROJECT HAS MOVED TO https://github.com/mistertfy64/mathematicalbasedefense**
-
-**PROJECT HAS MOVED TO https://github.com/mistertfy64/mathematicalbasedefense**
-
-**PROJECT HAS MOVED TO https://github.com/mistertfy64/mathematicalbasedefense**
-
-**PROJECT HAS MOVED TO https://github.com/mistertfy64/mathematicalbasedefense**
-
-**PROJECT HAS MOVED TO https://github.com/mistertfy64/mathematicalbasedefense**
-
-**PROJECT HAS MOVED TO https://github.com/mistertfy64/mathematicalbasedefense**
-
-**PROJECT HAS MOVED TO https://github.com/mistertfy64/mathematicalbasedefense**
-
-**PROJECT HAS MOVED TO https://github.com/mistertfy64/mathematicalbasedefense**
-
-**PROJECT HAS MOVED TO https://github.com/mistertfy64/mathematicalbasedefense**
-
-**PROJECT HAS MOVED TO https://github.com/mistertfy64/mathematicalbasedefense**
-
-**PROJECT HAS MOVED TO https://github.com/mistertfy64/mathematicalbasedefense**
-
-**PROJECT HAS MOVED TO https://github.com/mistertfy64/mathematicalbasedefense**
-
-**PROJECT HAS MOVED TO https://github.com/mistertfy64/mathematicalbasedefense**
-
-**PROJECT HAS MOVED TO https://github.com/mistertfy64/mathematicalbasedefense**
-
-**PROJECT HAS MOVED TO https://github.com/mistertfy64/mathematicalbasedefense**
-
-**PROJECT HAS MOVED TO https://github.com/mistertfy64/mathematicalbasedefense**
-
-**PROJECT HAS MOVED TO https://github.com/mistertfy64/mathematicalbasedefense**
+# PROJECT HAS MOVED TO https://github.com/mistertfy64/mathematicalbasedefenders
 
 
 Mathematical Base Defense is a educational game about making math equations to destroy enemies while protecting your base in the process.
