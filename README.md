@@ -1,3 +1,5 @@
+# 2023-02-23 UPDATE: THIS IS THE ORIGINAL VERSION OF MATHEMATICAL BASE DEFENDERS/DEFENSE, WHICH IS SUBMITTED TO NSTDA FOR NATIONAL SOFTWARE CONTEST 2021
+
 # ปกป้องฐานด้วยคณิตศาสตร์: จุดกำเนิด - Mathematical Base Defense: Origin
 
 # PROJECT HAS MOVED TO https://github.com/mistertfy64/mathematicalbasedefenders
