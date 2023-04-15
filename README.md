@@ -1,8 +1,12 @@
+# 2023-04-15 UPDATE: Project moved to https://github.com/mathematicalbasedefenders
+# 2023-04-15 CONFESSION: ok, i didnt really know what i was doing, but it passed the 2nd round in the end.
+# 2023-04-15 INFORMATION: although I (@mistertfy64) came up with the idea and name, I wasn't named the leader of the NSC version project, that's why it's on a different (the actual leader's) account.
+
 # 2023-02-23 UPDATE: THIS IS THE ORIGINAL VERSION OF MATHEMATICAL BASE DEFENDERS/DEFENSE, WHICH IS SUBMITTED TO NSTDA FOR NATIONAL SOFTWARE CONTEST 2021
 
 # ปกป้องฐานด้วยคณิตศาสตร์: จุดกำเนิด - Mathematical Base Defense: Origin
 
-# PROJECT HAS MOVED TO https://github.com/mistertfy64/mathematicalbasedefenders
+#~~ PROJECT HAS MOVED TO https://github.com/mistertfy64/mathematicalbasedefenders~~
 
 
 Mathematical Base Defense is a educational game about making math equations to destroy enemies while protecting your base in the process.
