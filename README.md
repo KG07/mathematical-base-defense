@@ -8,6 +8,11 @@ The source code for the original version of Mathematical Base Defense, where dev
 
 The source code for the current versions are at [https://github.com/mathematicalbasedefenders](https://github.com/mathematicalbasedefenders), where [mistertfy64](https://github.com/mistertfy64) is currently maintaining it.
 
+> [!NOTE]
+> This was made in 2020-2021, as such, many obscure/intermediate good practices of writing software was ignored during that time. Explore at your own risk.
+> 
+> Regardless, the software still received THB12,000.00 in funding for passing the presentation round (but not advancing to the final round.)
+
 
 <details>
 <summary> README.md text as of April 15, 2023. </summary>
