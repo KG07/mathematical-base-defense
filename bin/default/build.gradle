@@ -1,0 +1,48 @@
+plugins {
+    id 'java'
+}
+
+group 'com.mathematicalbasedefense'
+version '0.3.0-ALPHA'
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+        }
+    }
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'com.mathematicalbasedefense.mathematicalbasedefense.launcher.Launcher'
+        )
+    }
+}
+
+
+dependencies {
+    compile 'junit:junit:4.12'
+    compile 'net.coobird:thumbnailator:[0.4, 0.5)'
+    compile 'com.udojava:EvalEx:2.5'
+    compile 'org.scilab.forge:jlatexmath:1.0.7'
+    compile 'commons-io:commons-io:2.8.0'
+    compile group: 'org.json', name: 'json', version: '20201115'
+}
+
+task fatJar(type: Jar) {
+    manifest.from jar.manifest
+    from {
+        configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) }
+    } {
+        exclude "META-INF/*.SF"
+        exclude "META-INF/*.DSA"
+        exclude "META-INF/*.RSA"
+    }
+    with jar
+}
