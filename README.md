@@ -1,3 +1,17 @@
+Last Updated: October 7, 2024.
+
+<p align="center">
+  <img width="819" height="232" src="./mathematical_base_defense_the_original.png">
+</p>
+
+The source code for the original version of Mathematical Base Defense, where development started on October 16, 2020 as a project for [NSTDA's](https://www.nstda.or.th/) 23rd National Software Contest!
+
+The source code for the current versions are at [https://github.com/mathematicalbasedefenders](https://github.com/mathematicalbasedefenders), where [mistertfy64](https://github.com/mistertfy64) is currently maintaining it.
+
+
+<details>
+<summary> README.md text as of April 15, 2023. </summary>
+
 # 2023-04-15 UPDATE: Project moved to https://github.com/mathematicalbasedefenders
 # 2023-04-15 CONFESSION: ok, i didnt really know what i was doing, but it passed the 2nd round in the end.
 # 2023-04-15 INFORMATION: although I (@mistertfy64) came up with the idea and name, I wasn't named the leader of the NSC version project, that's why it's on a different (the actual leader's) account.
@@ -50,3 +64,4 @@ damages in connection with or arising out of the use of the software.”
 **PLEASE NOTE THAT THE PEOPLE HERE ARE NOT ONE OF THE DEVELOPERS OF MATHEMATICAL BASE DEFENSE!**
 
 [Phat Lorthammakun](https://github.com/VenusClietnt) for helping us type our school's name and being Mathematical Base Defense's mascot. 
+</details>
